@@ -19,7 +19,7 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Saade\FilamentFullCalendar\FilamentFullCalendarPlugin;
 
-class ADMINPanelProvider extends PanelProvider
+class AdminPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
@@ -28,6 +28,7 @@ class ADMINPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->canAccessPanel(fn () => true)
             ->colors([
                 'primary' => Color::Amber,
             ])
